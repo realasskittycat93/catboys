@@ -1,92 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>###</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="UTF-8">
+  <title>catboys.lol</title>
+  <style>
+ body {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 75vh;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 125px;
+ }
 
-        #clickPage, #mainPage {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    img {
+      width: 285px;
+    }
 
-        #clickPage {
-            background: black;
-            color: white;
-            font-size: 4em;
-            cursor: pointer;
-            z-index: 10;
-        }
+    h1 {
+      font-size: 2.5em;
+      margin: 0.5em 0;
+      position: relative;
+      top: -35px;
+    }
 
-        #mainPage {
-            display: none;
-        }
+    a {
+      display: block;
+      font-weight: bold;
+      color: black;
+      text-decoration: underline;
+      margin: 0.25em 0;
+      font-size: 1.1em;
+    }
 
-        video#backgroundVideo {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+    a:hover {
+      color: #555;
+    }
 
-        #flashText {
-            font-size: 10em;
-            font-weight: bold;
-            animation: flash 0.1s infinite;
-        }
+    a {
+      display: block;
+      font-weight: bold;
+      color: black;
+      text-decoration: underline;
+      margin: 0.25em 0;
+      font-size: 1.5em;
+      position: relative;
+      top: -40px;
+     }
 
-        @keyframes flash {
-            0%, 100% { color: white; }
-            50% { color: black; }
-        }
-    </style>
+  </style>
 </head>
 <body>
+  <img src="aaa.png" alt="Catboy Logo">
+  <h1>catboys.lol</h1>
 
-    <div id="clickPage">Click Me</div>
+  <a href="https://catboys.lol">Narc</a>
+  <a href="https://catboys.lol">Zilla</a>
+  <a href="https://catboys.lol">Drako</a>
 
-    <div id="mainPage">
-        <video id="backgroundVideo" autoplay loop muted></video>
-        <audio id="backgroundMusic" autoplay loop></audio>
-        <div id="flashText">I Love Dick!!!</div>
-    </div>
+  <script>
+    const fullTitle = "catboys.lol";
+    let i = 0;
+    let forward = true;
 
-    <script>
-        const clickPage = document.getElementById('clickPage');
-        const mainPage = document.getElementById('mainPage');
-        const backgroundVideo = document.getElementById('backgroundVideo');
-        const backgroundMusic = document.getElementById('backgroundMusic');
+    function animateTitle() {
+      if (forward) {
+        document.title = fullTitle.slice(0, i + 1);
+        i++;
+        if (i === fullTitle.length) forward = false;
+      } else {
+        document.title = fullTitle.slice(0, i);
+        i--;
+        if (i === 0) forward = true;
+      }
+    }
 
-        clickPage.addEventListener('click', () => {
-            clickPage.style.display = 'none';
-            mainPage.style.display = 'flex';
-
-            // Set your media files
-            backgroundVideo.src = "shady.mp4";
-            backgroundVideo.play();
-
-            backgroundMusic.src = "shady.mp3";
-            backgroundMusic.play();
-        });
-    </script>
-
+    setInterval(animateTitle, 120);
+  </script>
 </body>
 </html>
