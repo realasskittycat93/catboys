@@ -1,71 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>catboys.lol</title>
+  <title>Catboys.club</title>
   <style>
- body {
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 75vh;
-  margin: 0;
-  font-family: 'Courier New', Courier, monospace;
-  padding-top: 125px;
- }
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+    body {
+      background: url('cat.gif') center center/cover no-repeat fixed;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      backdrop-filter: blur(6px) brightness(1.08);
+      -webkit-backdrop-filter: blur(6px) brightness(1.08);
+      pointer-events: none;
+    }
+
+    .card, .card * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background: #fff0f6;
+      border-radius: 10px;
+      box-shadow: 0 4px 18px rgba(255, 182, 193, 0.13), 0 1.5px 8px rgba(0,0,0,0.03);
+      padding: 2.2rem 2.2rem 1.7rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 320px;
+      border: 1.5px solid #ffd6e6;
+    }
 
     img {
-      width: 285px;
+      width: 250px;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin: 0.5em 0;
-      position: relative;
-      top: -35px;
+      font-size: 2.1em;
+      font-weight: 700;
+      margin: 0 0 1.1em 0;
+      color: #7fe1fa;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 0 #00344d, 0 10px 15px #00b7ff;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7em;
+      margin-bottom: 0.5em;
     }
 
     a {
       display: block;
-      font-weight: bold;
-      color: black;
-      text-decoration: underline;
-      margin: 0.25em 0;
-      font-size: 1.1em;
+      font-weight: 700;
+      color: #6dd6ff;
+      text-decoration: none;
+      background: linear-gradient(90deg, #ffffff 0%, #e0f4ff 100%);
+      border-radius: 6px;
+      padding: 0.7em 0;
+      text-align: center;
+      font-size: 1.13em;
+      box-shadow: 0 1.5px 6px rgba(255,182,193,0.08);
+      letter-spacing: 0.5px;
+      transition: background 0.18s, color 0.18s, transform 0.13s;
+      border: 1px solid #cfebfc;
     }
 
     a:hover {
-      color: #555;
+      background: linear-gradient(90deg, #adfeff 0%, #afffff 100%);
+      color: #55c2ec;
+      transform: scale(1.025);
+      text-decoration: underline wavy #52d3e4 1.2px;
     }
-
-    a {
-      display: block;
-      font-weight: bold;
-      color: black;
-      text-decoration: underline;
-      margin: 0.25em 0;
-      font-size: 1.5em;
-      position: relative;
-      top: -40px;
-     }
-
   </style>
 </head>
+
+
 <body>
-  <img src="aaa.png" alt="Catboy Logo">
-  <h1>catboys.lol</h1>
-
-  <a href="https://catboys.lol">Narc</a>
-  <a href="https://catboys.lol">Zilla</a>
-  <a href="https://catboys.lol">Drako</a>
-
+  <div class="card">
+    <img src="aaa.png" alt="Catboy Logo">
+    <h1>catboys.lol</h1>
+    <div class="links">
+      <a href="https://catboys.lol">Narc</a>
+      <a href="https://catboys.lol">Zilla</a>
+      <a href="https://catboys.lol">Drako</a>
+    </div>
+  </div>
   <script>
     const fullTitle = "catboys.lol";
     let i = 0;
     let forward = true;
-
     function animateTitle() {
       if (forward) {
         document.title = fullTitle.slice(0, i + 1);
@@ -77,8 +123,8 @@
         if (i === 0) forward = true;
       }
     }
-
     setInterval(animateTitle, 120);
   </script>
 </body>
+
 </html>
