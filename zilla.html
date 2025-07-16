@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zilla</title>
+  <style>
+    .landing-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgb(125, 138, 146);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.5s;
+    }
+
+    .landing-overlay.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .landing-enter {
+      color: #0000FF; /* Blue */
+      font-size: 1.5em;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 10px #8ee5ff, 0 0 18px #bae3f8;
+      text-align: center;
+      cursor: pointer;
+      transition: color 0.18s;
+      user-select: none;
+    }
+
+    .landing-enter:hover {
+      color: #ff6347; /* Lighter Red on Hover */
+      text-decoration: underline;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('Zillabg.gif') no-repeat center center fixed;
+      backdrop-filter: blur(4px) brightness(1.08);
+      -webkit-backdrop-filter: blur(6px) brightness(1.08);
+      background-size: cover;
+      height: 100vh;
+      color: #8B0000; /* Dark Red */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+.overlay {
+  background-color: rgba(139, 0, 0, 0.4); /* Dark Red with Transparency */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+}
+
+    .profile {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+.avatar {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   border: 2px solid #000000; /* Black */
+   object-fit: cover;
+   margin-bottom: 10px;
+box-shadow:
+  0 0 12px 2px rgba(139, 0, 0, 0.6),  /* Dark Red */
+  0 0 24px 4px rgba(139, 0, 0, 0.4),  /* Darker Red */
+  0 0 36px 8px rgba(139, 0, 0, 0.2);  /* Darker Red with more spread */
+
+}
+
+    .name {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+ text-shadow:
+  0 0 8px rgba(0, 0, 0, 0.6),  /* Dark Black Shadow */
+  0 0 16px rgba(0, 0, 0, 0.4),  /* Slightly Lighter Black */
+  0 0 24px rgba(0, 0, 0, 0.2);  /* Faded Black Shadow */
+      color: #8B0000; /* Dark Red */
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 10px;
+    }
+
+    .socials a img {
+      width: 28px;
+      height: 28px;
+      filter:
+drop-shadow(0 0 6px rgba(139, 0, 0, 0.6)) /* Dark Red */
+drop-shadow(0 0 12px rgba(139, 0, 0, 0.4)) /* Darker Red */
+drop-shadow(0 0 18px rgba(139, 0, 0, 0.2)) /* Faded Dark Red */
+      transition: filter 0.2s, transform 0.18s cubic-bezier(.4,1.5,.5,1);
+    }
+
+    .socials a img:hover {
+      transform: scale(1.15);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="landing-overlay" id="landingOverlay">
+    <div class="landing-enter" id="enterBtn">Click to enter</div>
+  </div>
+
+  <audio id="bgMusic" src="astheearth.mp3" loop></audio>
+  <div class="profile">
+    <img src="Zilla.png" alt="Zillaavatar" class="avatar" />
+    <div class="name">i love ell</div>
+    <div class="name">Zilla</div>
+    <div class="socials">
+      <a href="https://discord.com/users/1385757877091962900" target="_blank">
+        <img src="discord2.png" alt="Discord" />
+         <a href="https://open.spotify.com/artist/31lf3ez2ji4ihkv3jqi5qfhkmeuu" target="_blank">
+        <img src="spotify.png" alt="Spotify" />
+      </a>
+      <a href="https://www.tiktok.com/@оее" target="_blank">
+        <img src="tiktok.png" alt="TikTok" />
+      </a>
+      <a href="https://www.instagram.com/ywzm/" target="_blank">
+        <img src="instagram.png" alt="Instagram" />
+      </a>
+    </div>
+  </div>
+</body>
+<script>
+  const overlay = document.getElementById('landingOverlay');
+  const btn = document.getElementById('enterBtn');
+  btn.addEventListener('click', () => {
+    overlay.classList.add('hide');
+    setTimeout(() => overlay.style.display = 'none', 600);
+    const music = document.getElementById('bgMusic');
+    if (music) {
+      music.volume = 0.2;
+      music.play().catch(() => {});
+    }
+  });
+</script>
+</body>
+</html>
+
